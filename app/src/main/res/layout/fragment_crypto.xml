@@ -6,39 +6,110 @@
     android:layout_height="match_parent"
     tools:context=".ui.crypto.CryptoFragment">
 
-    <Spinner
-        android:id="@+id/spinner_crypto"
+    <ScrollView
+        android:id="@+id/scrollViewCrypto"
         android:layout_width="0dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="16dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/crypto_spinner_label"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/crypto_spinner_label"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="70dp"
-        android:text="Select a Crypto"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/crypto_graph_image"
-        android:layout_width="0dp"
-        android:layout_height="350dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_stock" />
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/crypto_spinner_label"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="70dp"
+                android:text="Select a Crypto"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/spinner_crypto"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="24dp"
+                android:animateLayoutChanges="false"
+                android:autofillHints="Select Crypto"
+                android:dropDownWidth="match_parent"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/crypto_spinner_label"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/crypto_graph_image"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="64dp"
+                android:src="@drawable/ic_crypto"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.41"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_crypto" />
+
+            <TextView
+                android:id="@+id/predictionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="predictionText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/crypto_graph_image" />
+
+            <TextView
+                android:id="@+id/cryptoInfoText"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                android:text="This is where all the information will go about the Crypto chosen. This is currently preset to 100dp with a name cryptoInfoText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.206"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/predictionText" />
+
+            <Button
+                android:id="@+id/buyBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:text="Buy"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cryptoInfoText" />
+
+            <Button
+                android:id="@+id/sellBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="80dp"
+                android:layout_marginBottom="32dp"
+                android:text="Sell"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cryptoInfoText" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
