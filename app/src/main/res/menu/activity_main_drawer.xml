@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation"
+            android:title="Navigation">
+            <menu>
+                <item
+                    android:id="@+id/nav_home"
+                    android:icon="@drawable/ic_home"
+                    android:title="@string/menu_home" />
+                <item
+                    android:id="@+id/nav_about"
+                    android:icon="@drawable/ic_about"
+                    android:title="About Us" />
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/trade"
+            android:title="Trade">
+            <menu>
+                <item
+                    android:id="@+id/nav_portfolio"
+                    android:icon="@drawable/ic_wallet"
+                    android:title="Portfolio" />
+                <item
+                    android:id="@+id/nav_stocks"
+                    android:icon="@drawable/ic_stock"
+                    android:title="Stocks" />
+                <item
+                    android:id="@+id/nav_crypto"
+                    android:icon="@drawable/ic_crypto"
+                    android:title="Crypto" />
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/support"
+            android:title="Support">
+            <menu>
+                <item
+                    android:id="@+id/nav_contact"
+                    android:icon="@drawable/ic_contact"
+                    android:title="Contact Us" />
+                <item
+                    android:id="@+id/nav_support"
+                    android:icon="@drawable/ic_support"
+                    android:title="Support Chat" />
+            </menu>
+        </item>
+    </group>
+</menu>
