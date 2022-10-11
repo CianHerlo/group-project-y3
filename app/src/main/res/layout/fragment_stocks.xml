@@ -80,9 +80,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginBottom="1000dp"
                 android:text="This is where all the information will go about the Stock chosen. This is currently preset to 100dp with a name stockInfoText"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.206"
                 app:layout_constraintStart_toStartOf="parent"
@@ -93,9 +91,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
                 android:text="Buy"
-                app:layout_constraintBaseline_toBaselineOf="@+id/sellBtn"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stockInfoText" />
 
             <Button
                 android:id="@+id/sellBtn"
@@ -103,7 +104,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="80dp"
+                android:layout_marginBottom="32dp"
                 android:text="Sell"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/stockInfoText" />
         </androidx.constraintlayout.widget.ConstraintLayout>
