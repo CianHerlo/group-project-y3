@@ -4,27 +4,43 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
-
+import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import com.example.group_project.R;
 import com.example.group_project.databinding.FragmentStocksBinding;
+import com.example.group_project.ui.buy.BuyFragment;
 
 public class StocksFragment extends Fragment {
 
     private FragmentStocksBinding binding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        StocksViewModel stocksViewModel =
-                new ViewModelProvider(this).get(StocksViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        StocksViewModel stocksViewModel = new ViewModelProvider(this).get(StocksViewModel.class);
         binding = FragmentStocksBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        //View root = binding.getRoot();
+        View view = inflater.inflate(R.layout.fragment_stocks, container, false);
 
-        return root;
+       super.onViewCreated(view, savedInstanceState);
+
+       binding.buyBtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Fragment buyFrag = new BuyFragment();
+               FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+               FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+               fragmentTransaction.replace(R.id.nav_stocks, buyFrag);
+               fragmentTransaction.addToBackStack(null);
+               fragmentTransaction.commit();
+           }
+       });
+
+        return view;
+        //return root;
     }
 
     @Override

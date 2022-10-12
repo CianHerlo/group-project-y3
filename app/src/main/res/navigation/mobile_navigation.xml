@@ -46,5 +46,13 @@
         android:name="com.example.group_project.ui.support.SupportFragment"
         android:label="Support"
         tools:layout="@layout/fragment_support" />
+    <fragment
+        android:id="@+id/nav_buy"
+        android:name="com.example.group_project.ui.buy.BuyFragment"
+        android:label="BuyFragment" />
+    <fragment
+        android:id="@+id/nav_sell"
+        android:name="com.example.group_project.ui.sell.SellFragment"
+        android:label="SellFragment" />
 
 </navigation>
