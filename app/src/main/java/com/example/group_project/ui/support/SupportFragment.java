@@ -24,7 +24,7 @@ public class SupportFragment extends Fragment {
         binding = FragmentSupportBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSupport;
+        final TextView textView = binding.supportText;
         SupportViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

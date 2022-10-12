@@ -10,7 +10,7 @@ public class SupportViewModel extends ViewModel {
 
     public SupportViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is a Support fragment");
+        mText.setValue("Click button to redirect to support chat");
     }
 
     public LiveData<String> getText() {
