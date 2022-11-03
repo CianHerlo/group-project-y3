@@ -24,12 +24,10 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="5dp"
         android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/emailInputRegister"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fnameInputRegister"
         app:srcCompat="@drawable/ic_email" />
 
     <TextView
@@ -37,25 +35,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:text="@string/email_label"
         android:textColor="?android:attr/colorForeground"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/emailImage"
-        app:layout_constraintTop_toBottomOf="@+id/fnameInputRegister" />
-
-    <TextView
-        android:id="@+id/nameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/name_label"
-        android:textColor="?android:attr/colorForeground"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
         app:layout_constraintTop_toBottomOf="@+id/loginTitle3" />
 
     <EditText
@@ -170,46 +155,5 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/fnameInputRegister"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="5dp"
-        android:autofillHints="@string/fname"
-        android:ems="10"
-        android:hint="@string/fname"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameLabel" />
-
-    <EditText
-        android:id="@+id/lnameInputRegister"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="20dp"
-        android:autofillHints="@string/lname"
-        android:ems="10"
-        android:hint="@string/lname"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/emailLabel"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/fnameInputRegister"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginTitle3"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_pen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

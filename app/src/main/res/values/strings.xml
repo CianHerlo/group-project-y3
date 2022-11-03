@@ -24,6 +24,7 @@
     <string name="password_label">Password</string>
     <string name="password_hint">Password</string>
     <string name="login">Login</string>
+    <string name="logout">Log Out</string>
     <string name="register">Register</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="secure_password">Tips for Securing Account</string>

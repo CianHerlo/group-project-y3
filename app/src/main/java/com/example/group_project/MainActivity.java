@@ -3,24 +3,24 @@ package com.example.group_project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.View;
 import android.widget.Button;
 
-import com.example.group_project.ui.buy.BuyFragment;
-import com.google.android.material.navigation.NavigationView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.group_project.databinding.ActivityMainBinding;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-    private Button button;
+    private Button button, logoutBTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +43,18 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        NavigationView navView = findViewById(R.id.nav_view);
+        navView.getMenu().findItem(R.id.nav_logout).setOnMenuItemClickListener(menuItem -> {
+           logout();
+           return true;
+        });
 
+    }
 
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(), Login.class));
+        finish();
     }
 
     @Override
