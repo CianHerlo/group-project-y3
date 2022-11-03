@@ -29,7 +29,7 @@
         android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/emailInputRegister"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameInputRegister"
+        app:layout_constraintTop_toBottomOf="@+id/fnameInputRegister"
         app:srcCompat="@drawable/ic_email" />
 
     <TextView
@@ -43,7 +43,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/emailImage"
-        app:layout_constraintTop_toBottomOf="@+id/nameInputRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/fnameInputRegister" />
 
     <TextView
         android:id="@+id/nameLabel"
@@ -172,20 +172,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/nameInputRegister"
-        android:layout_width="0dp"
+        android:id="@+id/fnameInputRegister"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="50dp"
+        android:autofillHints="@string/fname"
         android:ems="10"
+        android:hint="@string/fname"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="@string/name_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameLabel" />
+
+    <EditText
+        android:id="@+id/lnameInputRegister"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="20dp"
+        android:autofillHints="@string/lname"
+        android:ems="10"
+        android:hint="@string/lname"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/emailLabel"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -194,7 +206,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/nameInputRegister"
+        app:layout_constraintBottom_toTopOf="@+id/fnameInputRegister"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginTitle3"
         app:layout_constraintVertical_bias="1.0"
