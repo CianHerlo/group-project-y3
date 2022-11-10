@@ -5,11 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+
 import com.example.group_project.R;
 import com.example.group_project.databinding.FragmentStocksBinding;
 import com.example.group_project.ui.buy.BuyFragment;
@@ -17,6 +19,7 @@ import com.example.group_project.ui.buy.BuyFragment;
 public class StocksFragment extends Fragment {
 
     private FragmentStocksBinding binding;
+    private Button buyBtn;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -27,13 +30,16 @@ public class StocksFragment extends Fragment {
 
        super.onViewCreated(view, savedInstanceState);
 
-       binding.buyBtn.setOnClickListener(new View.OnClickListener() {
+       buyBtn = view.findViewById(R.id.buyBtn);
+       buyBtn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                Fragment buyFrag = new BuyFragment();
+//               ConstraintLayout containerStocks = view.findViewById(R.id.containerStocks);
+//               containerStocks.removeAllViews();
                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-               fragmentTransaction.replace(R.id.nav_stocks, buyFrag);
+               fragmentTransaction.replace(R.id.containerStocks, buyFrag);
                fragmentTransaction.addToBackStack(null);
                fragmentTransaction.commit();
            }

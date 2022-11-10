@@ -18,8 +18,7 @@
         <!--Register Activity-->
         <activity
             android:name=".Register"
-            android:exported="true"
-            android:label="Register">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -34,7 +33,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="FinTech Trader"
             android:theme="@style/Theme.Groupproject.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
@@ -43,8 +41,7 @@
 
         <!--Login Activity-->
         <activity
-            android:name="com.example.group_project.Login"
-            android:label="Login" />
+            android:name="com.example.group_project.Login" />
     </application>
 
 </manifest>
