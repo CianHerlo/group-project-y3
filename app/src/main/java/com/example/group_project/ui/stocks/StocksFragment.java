@@ -37,6 +37,10 @@ public class StocksFragment extends Fragment {
                Fragment buyFrag = new BuyFragment();
 //               ConstraintLayout containerStocks = view.findViewById(R.id.containerStocks);
 //               containerStocks.removeAllViews();
+//               FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+//               transaction.add(R.id.buyScrollView, buyFrag);
+//               transaction.commit();
+
                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                fragmentTransaction.replace(R.id.containerStocks, buyFrag);
