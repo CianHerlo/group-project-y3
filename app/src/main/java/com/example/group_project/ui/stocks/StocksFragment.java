@@ -1,5 +1,6 @@
 package com.example.group_project.ui.stocks;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,13 +9,11 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.group_project.R;
 import com.example.group_project.databinding.FragmentStocksBinding;
-import com.example.group_project.ui.buy.BuyFragment;
+import com.example.group_project.ui.buy.Buy;
 
 public class StocksFragment extends Fragment {
 
@@ -34,18 +33,20 @@ public class StocksFragment extends Fragment {
        buyBtn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               Fragment buyFrag = new BuyFragment();
+//               Fragment buyFrag = new BuyFragment();
 //               ConstraintLayout containerStocks = view.findViewById(R.id.containerStocks);
 //               containerStocks.removeAllViews();
 //               FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 //               transaction.add(R.id.buyScrollView, buyFrag);
 //               transaction.commit();
 
-               FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-               FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-               fragmentTransaction.replace(R.id.containerStocks, buyFrag);
-               fragmentTransaction.addToBackStack(null);
-               fragmentTransaction.commit();
+//               FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//               FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//               fragmentTransaction.replace(R.id.containerStocks, buyFrag);
+//               fragmentTransaction.addToBackStack(null);
+//               fragmentTransaction.commit();
+               Intent intent = new Intent(view.getContext(), Buy.class);
+                view.getContext().startActivity(intent);
            }
        });
 

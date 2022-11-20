@@ -12,8 +12,10 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/buyLinearLayout"
@@ -34,53 +36,43 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="packed" />
 
-            <EditText
-                android:id="@+id/inputQTYText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Input Quantity"
-                app:layout_constraintBaseline_toBaselineOf="@+id/qtyLabel"
-                app:layout_constraintStart_toStartOf="parent" />
-
             <TextView
-                android:id="@+id/qtyLabel"
-                android:layout_width="0dp"
+                android:id="@+id/balanceAmountText"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="70dp"
-                android:layout_marginEnd="24dp"
-                android:text="Quantity"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="72dp"
+                android:text="€000000.00"
                 android:textAlignment="center"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/inputQTYText"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/balanceLabel"
                 app:layout_constraintTop_toBottomOf="@+id/buyTitle" />
 
             <TextView
-                android:id="@+id/totalValueLabel"
+                android:id="@+id/balanceLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="70dp"
-                android:layout_marginTop="50dp"
-                android:text="Total: "
-                android:textSize="24sp"
+                android:layout_marginTop="72dp"
+                android:text="Owned"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/balanceAmountText"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/inputQTYText" />
+                app:layout_constraintTop_toBottomOf="@+id/buyTitle" />
 
             <TextView
-                android:id="@+id/totalValueText"
+                android:id="@+id/saleAmountLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="50dp"
-                android:text="€000000.00"
+                android:text="Sale Amount:"
                 android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/totalValueLabel"
-                app:layout_constraintTop_toBottomOf="@+id/inputQTYText" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/balanceLabel" />
 
             <Button
                 android:id="@+id/confirmPurchaseBtn"
@@ -89,13 +81,22 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
-                android:layout_marginBottom="50dp"
                 android:text="Confirm Purchase"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/totalValueText"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toBottomOf="@+id/sellAmountInputQty" />
+
+            <EditText
+                android:id="@+id/sellAmountInputQty"
+                android:layout_width="126dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="32dp"
+                android:ems="10"
+                android:hint="€000000.00"
+                android:inputType="numberDecimal"
+                app:layout_constraintBaseline_toBaselineOf="@+id/saleAmountLabel"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
