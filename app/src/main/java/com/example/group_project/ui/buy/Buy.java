@@ -14,7 +14,7 @@ import com.example.group_project.R;
 public class Buy extends AppCompatActivity {
 
     EditText sellAmountInputQty;
-    TextView balanceAmountText, buyTitle;
+    TextView balanceAmountText, buyTitle, currentPrice;
     Button buyBTN;
 
     @Override
@@ -24,8 +24,16 @@ public class Buy extends AppCompatActivity {
 
         sellAmountInputQty = findViewById(R.id.sellAmountInputQty);
         balanceAmountText = findViewById(R.id.balanceAmountText);
+        currentPrice = findViewById(R.id.price);
         buyTitle = findViewById(R.id.buyTitle);
         buyBTN = findViewById(R.id.confirmPurchaseBtn);
+
+        Intent intent = getIntent();
+        String trade_name = intent.getStringExtra("Trade_Name");
+        String price = intent.getStringExtra("Trade_Price");
+
+        buyTitle.setText(trade_name);
+        currentPrice.setText(price);
     }
 
     @Override
