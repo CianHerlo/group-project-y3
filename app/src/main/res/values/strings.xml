@@ -29,6 +29,11 @@
     <string name="forgot_password">Forgot password?</string>
     <string name="secure_password">Tips for Securing Account</string>
     <string name="github">GitHub</string>
+    <string name="stock_spinner_label">Select a Stock</string>
+    <string name="crypto_spinner_label">Select a Crypto</string>
+    <string name="buy_button_label">Buy</string>
+    <string name="sell_button_label">Sell</string>
+    <string name="graph_predict">Graph Showing Predictions of Current Stock or Crypto</string>
 
 
 
@@ -39,6 +44,7 @@
         <item>Meta</item>
         <item>Microsoft</item>
     </string-array>
+
     <string-array name="cryptos">
         <item>Bitcoin</item>
         <item>Ethereum</item>

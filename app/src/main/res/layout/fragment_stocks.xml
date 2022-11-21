@@ -29,7 +29,7 @@
                 android:layout_height="25dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="70dp"
-                android:text="Select a Stock"
+                android:text="@string/stock_spinner_label"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -58,6 +58,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="64dp"
                 android:background="@color/white"
+                android:contentDescription="@string/graph_predict"
                 android:src="@drawable/ic_stock"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.41"
@@ -94,7 +95,7 @@
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="32dp"
-                android:text="Buy"
+                android:text="@string/buy_button_label"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/stockInfoText" />
@@ -106,7 +107,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="80dp"
                 android:layout_marginBottom="32dp"
-                android:text="Sell"
+                android:text="@string/sell_button_label"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/stockInfoText" />
