@@ -28,7 +28,7 @@
                 android:layout_height="25dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="70dp"
-                android:text="Select a Crypto"
+                android:text="@string/crypto_spinner_label"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -56,8 +56,9 @@
                 android:layout_marginStart="64dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="64dp"
-                android:src="@drawable/ic_crypto"
                 android:background="@color/white"
+                android:contentDescription="@string/graph_predict"
+                android:src="@drawable/ic_crypto"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.41"
                 app:layout_constraintStart_toStartOf="parent"
@@ -87,25 +88,25 @@
                 app:layout_constraintTop_toBottomOf="@+id/predictionText" />
 
             <Button
-                android:id="@+id/buyBtn"
+                android:id="@+id/buyBtnCrypto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="32dp"
-                android:text="Buy"
+                android:text="@string/buy_button_label"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cryptoInfoText" />
 
             <Button
-                android:id="@+id/sellBtn"
+                android:id="@+id/sellBtnCrypto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="80dp"
                 android:layout_marginBottom="32dp"
-                android:text="Sell"
+                android:text="@string/sell_button_label"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cryptoInfoText" />
