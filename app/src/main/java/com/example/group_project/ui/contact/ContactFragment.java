@@ -33,6 +33,18 @@ public class ContactFragment extends Fragment {
             view1.getContext().startActivity(intent);
         });
 
+        Button emailBTN = view.findViewById(R.id.emailBTN);
+        emailBTN.setOnClickListener(view1 -> {
+            String emails = "aaron.canty@mycit.ie,alannah.cooney@mycit.ie,cian.herlihy@mycit.ie,roisin.suarez@mycit.ie";
+            String [] emailList = emails.split(",");
+            Intent intent = new Intent(Intent.ACTION_SEND_MULTIPLE);
+            intent.setType("message/rfc822");
+            intent.putExtra(Intent.EXTRA_EMAIL, emailList);
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Fintech Trader Mobile Application Support");
+            intent.putExtra(Intent.EXTRA_TEXT, "Hi all,\n\nI have an issue with..\n\nKind Regards,\nYour Name.");
+            view1.getContext().startActivity(intent);
+        });
+
         return view;
     }
 
