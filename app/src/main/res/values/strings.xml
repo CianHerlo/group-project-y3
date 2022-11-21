@@ -29,4 +29,18 @@
     <string name="forgot_password">Forgot password?</string>
     <string name="secure_password">Tips for Securing Account</string>
     <string name="github">GitHub</string>
+
+
+
+    <string-array name="stocks">
+        <item>Amazon</item>
+        <item>Apple</item>
+        <item>Google</item>
+        <item>Meta</item>
+        <item>Microsoft</item>
+    </string-array>
+    <string-array name="cryptos">
+        <item>Bitcoin</item>
+        <item>Ethereum</item>
+    </string-array>
 </resources>
