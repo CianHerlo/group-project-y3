@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -18,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.group_project.R;
 import com.example.group_project.databinding.FragmentCryptoBinding;
 import com.example.group_project.ui.buy.Buy;
+import com.google.android.material.snackbar.Snackbar;
 
 public class CryptoFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
@@ -37,6 +37,7 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
 
         Button buyBtn = view.findViewById(R.id.buyBtnCrypto);
         buyBtn.setOnClickListener(view1 -> {
@@ -58,7 +59,16 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+
+        Snackbar snackBar = Snackbar.make(view.getContext(), view, text, Snackbar.LENGTH_LONG);
+        snackBar.setAction("Close", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Call your action method here
+                snackBar.dismiss();
+            }
+        });
+        snackBar.show();
     }
 
     @Override
