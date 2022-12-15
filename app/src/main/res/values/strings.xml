@@ -36,6 +36,15 @@
     <string name="graph_predict">Graph Showing Predictions of Current Stock or Crypto</string>
 
     <!-- Stock/Crypto Prices for 1 Share -->
+    <string name="adobe_name">Adobe</string>
+    <string name="amazon_name">Amazon</string>
+    <string name="apple_name">Apple</string>
+    <string name="google_name">Google</string>
+    <string name="microsoft_name">Microsoft</string>
+    <string name="bitcoin_name">Bitcoin</string>
+    <string name="ethereum_name">Ethereum</string>
+
+    <!-- Stock/Crypto Prices for 1 Share -->
     <string name="adobe">$325.58</string>
     <string name="amazon">$88.04</string>
     <string name="apple">$137.35</string>
