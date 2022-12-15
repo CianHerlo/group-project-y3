@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
@@ -19,13 +18,13 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.group_project.databinding.ActivityMainBinding;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -64,42 +63,81 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseUser logged_user = FirebaseAuth.getInstance().getCurrentUser();
         assert logged_user != null;
-        String email = logged_user.getEmail();
+        String logged_email = logged_user.getEmail();
 
         View headerView = navigationView.getHeaderView(0);
         emailNavText = headerView.findViewById(R.id.emailNavText);
-        emailNavText.setText(email);
+        emailNavText.setText(logged_email);
 
 
-        Map<String, Object> user = new HashMap<>();
-        user.put("Email", email);
-        user.put("Wallet", 0);
-        user.put("Total", 0);
-        user.put("Adobe", 0);
-        user.put("Amazon", 0);
-        user.put("Apple", 0);
-        user.put("Google", 0);
-        user.put("Microsoft", 0);
-        user.put("Bitcoin", 0);
-        user.put("Ethereum", 0);
+        CollectionReference usersRef = db.collection("customer_wallets");
+        Query query = usersRef.whereEqualTo("email", logged_email);
+        query.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for (DocumentSnapshot documentSnapshot : task.getResult()) {
+                    String email = documentSnapshot.getString("email");
 
-        // Add a new document with a generated ID
-        db.collection("users")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                        Toast.makeText(MainActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+                    assert email != null;
+                    if (email.equals(logged_email)) {
+                        Log.d(TAG, "Welcome Back");
+                        userExists = 1;
+                        break;
                     }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
-                        Toast.makeText(MainActivity.this, "Failed", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                }
+
+                if (userExists != 1) {
+                    Log.d(TAG, "New User");
+                    Toast.makeText(MainActivity.this, "New User", Toast.LENGTH_SHORT).show();
+
+                    // Create a new user
+                    Map<String, Object> user = new HashMap<>();
+                    user.put("Email", logged_email);
+                    user.put("Wallet", 0);
+                    user.put("Total", 0);
+                    user.put("Adobe", 0);
+                    user.put("Amazon", 0);
+                    user.put("Apple", 0);
+                    user.put("Google", 0);
+                    user.put("Microsoft", 0);
+                    user.put("Bitcoin", 0);
+                    user.put("Ethereum", 0);
+
+                    // Add a new document with a generated ID
+                    db.collection("customer_wallets")
+                            .add(user)
+                            .addOnSuccessListener(documentReference -> Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId()))
+                            .addOnFailureListener(e -> Log.w(TAG, "Error adding document", e));
+                }
+            }
+        });
+
+//        Map<String, Object> user = new HashMap<>();
+//        user.put("Email", email);
+//        user.put("Wallet", 0);
+//        user.put("Total", 0);
+//        user.put("Adobe", 0);
+//        user.put("Amazon", 0);
+//        user.put("Apple", 0);
+//        user.put("Google", 0);
+//        user.put("Microsoft", 0);
+//        user.put("Bitcoin", 0);
+//        user.put("Ethereum", 0);
+//
+//        // Add a new document with a generated ID
+//        db.collection("users")
+//                .add(user)
+//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                    @Override
+//                    public void onSuccess(DocumentReference documentReference) {
+//                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Log.w(TAG, "Error adding document", e);
+//                    }
+//                });
 
 
 
