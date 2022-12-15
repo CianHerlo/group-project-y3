@@ -38,7 +38,7 @@
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="60dp"
                 android:layout_marginEnd="24dp"
                 android:animateLayoutChanges="false"
                 android:autofillHints="Select Crypto"
@@ -87,7 +87,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="predictionText"
+                android:text="@string/bitcoin"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/crypto_graph_image" />
+
+            <TextView
+                android:id="@+id/predictionText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/ethereum"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/crypto_graph_image" />

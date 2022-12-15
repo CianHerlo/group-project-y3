@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -24,6 +25,7 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
 
     private FragmentCryptoBinding binding;
     private ImageView img, img2;
+    private TextView predictionText, predictionText2;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -45,6 +47,9 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
 
         img.setImageResource(R.drawable.bitcoin);
         img2.setImageResource(R.drawable.ethereum);
+
+        predictionText = view.findViewById(R.id.predictionText);
+        predictionText2 = view.findViewById(R.id.predictionText2);
 
         Button buyBtn = view.findViewById(R.id.buyBtnCrypto);
         buyBtn.setOnClickListener(view1 -> {
@@ -78,12 +83,19 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
         String spinner_item = parent.getSelectedItem().toString();
+
         if (spinner_item.equals("Bitcoin")) {
             img.setVisibility(View.VISIBLE);
             img2.setVisibility(View.INVISIBLE);
+
+            predictionText.setVisibility(View.VISIBLE);
+            predictionText2.setVisibility(View.INVISIBLE);
         } else {
             img.setVisibility(View.INVISIBLE);
             img2.setVisibility(View.VISIBLE);
+
+            predictionText.setVisibility(View.INVISIBLE);
+            predictionText2.setVisibility(View.VISIBLE);
         }
 
 
