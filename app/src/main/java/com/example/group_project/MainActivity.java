@@ -71,11 +71,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         CollectionReference usersRef = db.collection("customer_wallets");
-        Query query = usersRef.whereEqualTo("email", logged_email);
+        Query query = usersRef.whereEqualTo("Email", logged_email);
         query.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 for (DocumentSnapshot documentSnapshot : task.getResult()) {
-                    String email = documentSnapshot.getString("email");
+                    String email = documentSnapshot.getString("Email");
 
                     assert email != null;
                     if (email.equals(logged_email)) {
