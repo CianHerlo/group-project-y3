@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -25,6 +26,7 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
 
     private FragmentStocksBinding binding;
     private ImageView img, img2, img3, img4, img5;
+    private TextView predictionText, predictionText2, predictionText3, predictionText4, predictionText5;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -53,6 +55,12 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
         img3.setImageResource(R.drawable.apple);
         img4.setImageResource(R.drawable.google);
         img5.setImageResource(R.drawable.microsoft);
+
+        predictionText = view.findViewById(R.id.predictionText);
+        predictionText2 = view.findViewById(R.id.predictionText2);
+        predictionText3 = view.findViewById(R.id.predictionText3);
+        predictionText4 = view.findViewById(R.id.predictionText4);
+        predictionText5 = view.findViewById(R.id.predictionText5);
 
         Button buyBtn = view.findViewById(R.id.buyBtn);
         buyBtn.setOnClickListener(view1 -> {
@@ -91,6 +99,12 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
             img3.setVisibility(View.INVISIBLE);
             img4.setVisibility(View.INVISIBLE);
             img5.setVisibility(View.INVISIBLE);
+
+            predictionText.setVisibility(View.VISIBLE);
+            predictionText2.setVisibility(View.INVISIBLE);
+            predictionText3.setVisibility(View.INVISIBLE);
+            predictionText4.setVisibility(View.INVISIBLE);
+            predictionText5.setVisibility(View.INVISIBLE);
         }
         else if (spinner_item.equals("Amazon")) {
             img.setVisibility(View.INVISIBLE);
@@ -98,6 +112,12 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
             img3.setVisibility(View.INVISIBLE);
             img4.setVisibility(View.INVISIBLE);
             img5.setVisibility(View.INVISIBLE);
+
+            predictionText.setVisibility(View.INVISIBLE);
+            predictionText2.setVisibility(View.VISIBLE);
+            predictionText3.setVisibility(View.INVISIBLE);
+            predictionText4.setVisibility(View.INVISIBLE);
+            predictionText5.setVisibility(View.INVISIBLE);
         }
         else if (spinner_item.equals("Apple")) {
             img.setVisibility(View.INVISIBLE);
@@ -105,6 +125,12 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
             img3.setVisibility(View.VISIBLE);
             img4.setVisibility(View.INVISIBLE);
             img5.setVisibility(View.INVISIBLE);
+
+            predictionText.setVisibility(View.INVISIBLE);
+            predictionText2.setVisibility(View.INVISIBLE);
+            predictionText3.setVisibility(View.VISIBLE);
+            predictionText4.setVisibility(View.INVISIBLE);
+            predictionText5.setVisibility(View.INVISIBLE);
         }
         else if (spinner_item.equals("Google")) {
             img.setVisibility(View.INVISIBLE);
@@ -112,12 +138,24 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
             img3.setVisibility(View.INVISIBLE);
             img4.setVisibility(View.VISIBLE);
             img5.setVisibility(View.INVISIBLE);
+
+            predictionText.setVisibility(View.INVISIBLE);
+            predictionText2.setVisibility(View.INVISIBLE);
+            predictionText3.setVisibility(View.INVISIBLE);
+            predictionText4.setVisibility(View.VISIBLE);
+            predictionText5.setVisibility(View.INVISIBLE);
         } else {
             img.setVisibility(View.INVISIBLE);
             img2.setVisibility(View.INVISIBLE);
             img3.setVisibility(View.INVISIBLE);
             img4.setVisibility(View.INVISIBLE);
             img5.setVisibility(View.VISIBLE);
+
+            predictionText.setVisibility(View.INVISIBLE);
+            predictionText2.setVisibility(View.INVISIBLE);
+            predictionText3.setVisibility(View.INVISIBLE);
+            predictionText4.setVisibility(View.INVISIBLE);
+            predictionText5.setVisibility(View.VISIBLE);
         }
 
 
