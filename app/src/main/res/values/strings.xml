@@ -37,10 +37,10 @@
 
 
     <string-array name="stocks">
+        <item>Adobe</item>
         <item>Amazon</item>
         <item>Apple</item>
         <item>Google</item>
-        <item>Meta</item>
         <item>Microsoft</item>
     </string-array>
 

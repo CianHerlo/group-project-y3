@@ -25,6 +25,10 @@ public class SupportFragment extends Fragment {
         View root = binding.getRoot();
 
         final TextView textView = binding.supportText;
+
+        // Link to Contact Form on Website
+        //https://year-3-group-project.web.app/contact.html
+
         SupportViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
