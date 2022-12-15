@@ -12,7 +12,6 @@ import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.group_project.R;
 import com.example.group_project.databinding.FragmentCryptoBinding;
@@ -25,7 +24,6 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
     private FragmentCryptoBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        CryptoViewModel cryptoViewModel = new ViewModelProvider(this).get(CryptoViewModel.class);
 
         binding = FragmentCryptoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -72,12 +70,8 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
         String text = parent.getItemAtPosition(position).toString();
 
         Snackbar snackBar = Snackbar.make(view.getContext(), view, text, Snackbar.LENGTH_LONG);
-        snackBar.setAction("Close", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Call your action method here
-                snackBar.dismiss();
-            }
+        snackBar.setAction("Close", v -> {
+            snackBar.dismiss();
         });
         snackBar.show();
     }
