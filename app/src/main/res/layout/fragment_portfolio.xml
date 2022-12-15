@@ -17,7 +17,7 @@
         app:layout_constraintTop_toBottomOf="@+id/portfolio_title_crypto" />
 
     <TextView
-        android:id="@+id/bitcoinTitle2"
+        android:id="@+id/portfolioValueTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
@@ -116,7 +116,7 @@
         app:layout_constraintTop_toBottomOf="@+id/bitcoinOwned" />
 
     <TextView
-        android:id="@+id/ethereumOwned2"
+        android:id="@+id/totalValuePortfolio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
