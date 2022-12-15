@@ -35,7 +35,8 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity> <!-- Main Activity -->
+        </activity>
+        <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
