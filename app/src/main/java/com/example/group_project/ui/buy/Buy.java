@@ -30,11 +30,9 @@ public class Buy extends AppCompatActivity {
 
         Intent intent = getIntent();
         String trade_name = intent.getStringExtra("Trade_Name");
-//        String price = intent.getStringExtra("Trade_Price");
         String owned = intent.getStringExtra("Owned");
 
         buyTitle.setText(trade_name);
-//        currentPrice.setText(price);
         balanceAmountText.setText(owned);
 
         switch (trade_name) {
