@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -40,20 +39,12 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
         img = view.findViewById(R.id.crypto_graph_image);
         img2 = view.findViewById(R.id.crypto_graph_image2);
+
         img.setImageResource(R.drawable.bitcoin);
         img2.setImageResource(R.drawable.ethereum);
-        img.setVisibility(View.INVISIBLE);
-        img2.setVisibility(View.INVISIBLE);
-//        img.setImageResource(R.drawable.bitcoin);
-//        String spinner_item = spinner.getSelectedItem().toString();
-//        Toast.makeText(view.getContext(), spinner_item, Toast.LENGTH_SHORT).show();
-//        if (spinner_item.equals("Bitcoin")) {
-//            img.setImageResource(R.drawable.bitcoin);
-//        } else {
-//            img.setImageResource(R.drawable.ethereum);
-//        }
 
         Button buyBtn = view.findViewById(R.id.buyBtnCrypto);
         buyBtn.setOnClickListener(view1 -> {
@@ -87,7 +78,6 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
         String spinner_item = parent.getSelectedItem().toString();
-        Toast.makeText(view.getContext(), spinner_item, Toast.LENGTH_SHORT).show();
         if (spinner_item.equals("Bitcoin")) {
             img.setVisibility(View.VISIBLE);
             img2.setVisibility(View.INVISIBLE);

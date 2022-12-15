@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -23,6 +24,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class StocksFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     private FragmentStocksBinding binding;
+    private ImageView img, img2, img3, img4, img5;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -41,6 +43,16 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+        img = view.findViewById(R.id.stock_graph_image);
+        img2 = view.findViewById(R.id.stock_graph_image2);
+        img3 = view.findViewById(R.id.stock_graph_image3);
+        img4 = view.findViewById(R.id.stock_graph_image4);
+        img5 = view.findViewById(R.id.stock_graph_image5);
+        img.setImageResource(R.drawable.adobe);
+        img2.setImageResource(R.drawable.amazon);
+        img3.setImageResource(R.drawable.apple);
+        img4.setImageResource(R.drawable.google);
+        img5.setImageResource(R.drawable.microsoft);
 
         Button buyBtn = view.findViewById(R.id.buyBtn);
         buyBtn.setOnClickListener(view1 -> {
@@ -72,6 +84,42 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
+        String spinner_item = parent.getSelectedItem().toString();
+        if (spinner_item.equals("Adobe")) {
+            img.setVisibility(View.VISIBLE);
+            img2.setVisibility(View.INVISIBLE);
+            img3.setVisibility(View.INVISIBLE);
+            img4.setVisibility(View.INVISIBLE);
+            img5.setVisibility(View.INVISIBLE);
+        }
+        else if (spinner_item.equals("Amazon")) {
+            img.setVisibility(View.INVISIBLE);
+            img2.setVisibility(View.VISIBLE);
+            img3.setVisibility(View.INVISIBLE);
+            img4.setVisibility(View.INVISIBLE);
+            img5.setVisibility(View.INVISIBLE);
+        }
+        else if (spinner_item.equals("Apple")) {
+            img.setVisibility(View.INVISIBLE);
+            img2.setVisibility(View.INVISIBLE);
+            img3.setVisibility(View.VISIBLE);
+            img4.setVisibility(View.INVISIBLE);
+            img5.setVisibility(View.INVISIBLE);
+        }
+        else if (spinner_item.equals("Google")) {
+            img.setVisibility(View.INVISIBLE);
+            img2.setVisibility(View.INVISIBLE);
+            img3.setVisibility(View.INVISIBLE);
+            img4.setVisibility(View.VISIBLE);
+            img5.setVisibility(View.INVISIBLE);
+        } else {
+            img.setVisibility(View.INVISIBLE);
+            img2.setVisibility(View.INVISIBLE);
+            img3.setVisibility(View.INVISIBLE);
+            img4.setVisibility(View.INVISIBLE);
+            img5.setVisibility(View.VISIBLE);
+        }
+
 
         Snackbar snackBar = Snackbar.make(view.getContext(), view, text, Snackbar.LENGTH_LONG);
         snackBar.setAction("Close", v -> {
