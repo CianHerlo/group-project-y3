@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -87,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
                 if (userExists != 1) {
                     Log.d(TAG, "New User");
-                    Toast.makeText(MainActivity.this, "New User", Toast.LENGTH_SHORT).show();
 
                     // Create a new user
                     Map<String, Object> user = new HashMap<>();
@@ -110,37 +108,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-//        Map<String, Object> user = new HashMap<>();
-//        user.put("Email", email);
-//        user.put("Wallet", 0);
-//        user.put("Total", 0);
-//        user.put("Adobe", 0);
-//        user.put("Amazon", 0);
-//        user.put("Apple", 0);
-//        user.put("Google", 0);
-//        user.put("Microsoft", 0);
-//        user.put("Bitcoin", 0);
-//        user.put("Ethereum", 0);
-//
-//        // Add a new document with a generated ID
-//        db.collection("users")
-//                .add(user)
-//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                    @Override
-//                    public void onSuccess(DocumentReference documentReference) {
-//                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Log.w(TAG, "Error adding document", e);
-//                    }
-//                });
-
-
-
 
         // Logout in Navigation Menu
         navigationView.getMenu().findItem(R.id.nav_logout).setOnMenuItemClickListener(menuItem -> {
