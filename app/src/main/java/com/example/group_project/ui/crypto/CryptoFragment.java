@@ -8,23 +8,26 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.group_project.R;
 import com.example.group_project.databinding.FragmentCryptoBinding;
 import com.example.group_project.ui.buy.Buy;
+import com.example.group_project.ui.sell.Sell;
 import com.google.android.material.snackbar.Snackbar;
 
 public class CryptoFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     private FragmentCryptoBinding binding;
+    private ImageView img, img2;
+    private TextView predictionText, predictionText2;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        CryptoViewModel cryptoViewModel = new ViewModelProvider(this).get(CryptoViewModel.class);
 
         binding = FragmentCryptoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -39,15 +42,35 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
+        img = view.findViewById(R.id.crypto_graph_image);
+        img2 = view.findViewById(R.id.crypto_graph_image2);
+
+        img.setImageResource(R.drawable.bitcoin);
+        img2.setImageResource(R.drawable.ethereum);
+
+        predictionText = view.findViewById(R.id.predictionText);
+        predictionText2 = view.findViewById(R.id.predictionText2);
+
         Button buyBtn = view.findViewById(R.id.buyBtnCrypto);
         buyBtn.setOnClickListener(view1 -> {
             Intent intent = new Intent(view1.getContext(), Buy.class);
-               intent.putExtra("Trade_Name", spinner.getSelectedItem().toString());
-               intent.putExtra("Trade_Price", "1234.56");
+            intent.putExtra("Trade_Name", spinner.getSelectedItem().toString());
+//            intent.putExtra("Trade_Price", "1234.56");
+            intent.putExtra("Owned", "1234.56");
             view1.getContext().startActivity(intent);
         });
 
-            return view;
+        Button sellBtn = view.findViewById(R.id.sellBtnCrypto);
+        sellBtn.setOnClickListener(view1 -> {
+            Intent intent = new Intent(view1.getContext(), Sell.class);
+            intent.putExtra("Trade_Name", spinner.getSelectedItem().toString());
+//            intent.putExtra("Trade_Price", "1234.56");
+            intent.putExtra("Owned", "1234.56");
+            view1.getContext().startActivity(intent);
+        });
+
+
+        return view;
     }
 
     @Override
@@ -59,14 +82,26 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
+        String spinner_item = parent.getSelectedItem().toString();
+
+        if (spinner_item.equals("Bitcoin")) {
+            img.setVisibility(View.VISIBLE);
+            img2.setVisibility(View.INVISIBLE);
+
+            predictionText.setVisibility(View.VISIBLE);
+            predictionText2.setVisibility(View.INVISIBLE);
+        } else {
+            img.setVisibility(View.INVISIBLE);
+            img2.setVisibility(View.VISIBLE);
+
+            predictionText.setVisibility(View.INVISIBLE);
+            predictionText2.setVisibility(View.VISIBLE);
+        }
+
 
         Snackbar snackBar = Snackbar.make(view.getContext(), view, text, Snackbar.LENGTH_LONG);
-        snackBar.setAction("Close", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Call your action method here
-                snackBar.dismiss();
-            }
+        snackBar.setAction("Close", v -> {
+            snackBar.dismiss();
         });
         snackBar.show();
     }

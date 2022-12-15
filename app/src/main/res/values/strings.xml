@@ -35,13 +35,30 @@
     <string name="sell_button_label">Sell</string>
     <string name="graph_predict">Graph Showing Predictions of Current Stock or Crypto</string>
 
+    <!-- Stock/Crypto Prices for 1 Share -->
+    <string name="adobe_name">Adobe</string>
+    <string name="amazon_name">Amazon</string>
+    <string name="apple_name">Apple</string>
+    <string name="google_name">Google</string>
+    <string name="microsoft_name">Microsoft</string>
+    <string name="bitcoin_name">Bitcoin</string>
+    <string name="ethereum_name">Ethereum</string>
+
+    <!-- Stock/Crypto Prices for 1 Share -->
+    <string name="adobe">$325.58</string>
+    <string name="amazon">$88.04</string>
+    <string name="apple">$137.35</string>
+    <string name="google">$90.58</string>
+    <string name="microsoft">$248.53</string>
+    <string name="bitcoin">€16,430.04</string>
+    <string name="ethereum">€1,198.30</string>
 
 
     <string-array name="stocks">
+        <item>Adobe</item>
         <item>Amazon</item>
         <item>Apple</item>
         <item>Google</item>
-        <item>Meta</item>
         <item>Microsoft</item>
     </string-array>
 
