@@ -30,12 +30,40 @@ public class Buy extends AppCompatActivity {
 
         Intent intent = getIntent();
         String trade_name = intent.getStringExtra("Trade_Name");
-        String price = intent.getStringExtra("Trade_Price");
+//        String price = intent.getStringExtra("Trade_Price");
         String owned = intent.getStringExtra("Owned");
 
         buyTitle.setText(trade_name);
-        currentPrice.setText(price);
+//        currentPrice.setText(price);
         balanceAmountText.setText(owned);
+
+        switch (trade_name) {
+            case "Adobe":
+                currentPrice.setText(R.string.adobe);
+                break;
+            case "Amazon":
+                currentPrice.setText(R.string.amazon);
+                break;
+            case "Apple":
+                currentPrice.setText(R.string.apple);
+                break;
+            case "Google":
+                currentPrice.setText(R.string.google);
+                break;
+            case "Microsoft":
+                currentPrice.setText(R.string.microsoft);
+                break;
+            case "Bitcoin":
+                currentPrice.setText(R.string.bitcoin);
+                break;
+            case "Ethereum":
+                currentPrice.setText(R.string.ethereum);
+                break;
+
+            default:
+                currentPrice.setText("Price Error!");
+                break;
+        }
     }
 
     @Override

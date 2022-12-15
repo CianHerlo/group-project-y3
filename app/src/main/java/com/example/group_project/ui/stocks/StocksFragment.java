@@ -66,7 +66,7 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
         buyBtn.setOnClickListener(view1 -> {
             Intent intent = new Intent(view1.getContext(), Buy.class);
             intent.putExtra("Trade_Name", spinner.getSelectedItem().toString());
-            intent.putExtra("Trade_Price", "1234.56");
+//            intent.putExtra("Trade_Price", "1234.56");
             intent.putExtra("Owned", "1234.56");
              view1.getContext().startActivity(intent);
         });
@@ -75,7 +75,7 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
         sellBtn.setOnClickListener(view1 -> {
             Intent intent = new Intent(view1.getContext(), Sell.class);
             intent.putExtra("Trade_Name", spinner.getSelectedItem().toString());
-            intent.putExtra("Trade_Price", "1234.56");
+//            intent.putExtra("Trade_Price", "1234.56");
             intent.putExtra("Owned", "1234.56");
             view1.getContext().startActivity(intent);
         });
@@ -105,8 +105,7 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
             predictionText3.setVisibility(View.INVISIBLE);
             predictionText4.setVisibility(View.INVISIBLE);
             predictionText5.setVisibility(View.INVISIBLE);
-        }
-        else if (spinner_item.equals("Amazon")) {
+        } else if (spinner_item.equals("Amazon")) {
             img.setVisibility(View.INVISIBLE);
             img2.setVisibility(View.VISIBLE);
             img3.setVisibility(View.INVISIBLE);
@@ -118,8 +117,7 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
             predictionText3.setVisibility(View.INVISIBLE);
             predictionText4.setVisibility(View.INVISIBLE);
             predictionText5.setVisibility(View.INVISIBLE);
-        }
-        else if (spinner_item.equals("Apple")) {
+        } else if (spinner_item.equals("Apple")) {
             img.setVisibility(View.INVISIBLE);
             img2.setVisibility(View.INVISIBLE);
             img3.setVisibility(View.VISIBLE);
@@ -131,8 +129,7 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
             predictionText3.setVisibility(View.VISIBLE);
             predictionText4.setVisibility(View.INVISIBLE);
             predictionText5.setVisibility(View.INVISIBLE);
-        }
-        else if (spinner_item.equals("Google")) {
+        } else if (spinner_item.equals("Google")) {
             img.setVisibility(View.INVISIBLE);
             img2.setVisibility(View.INVISIBLE);
             img3.setVisibility(View.INVISIBLE);
