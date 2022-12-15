@@ -36,7 +36,6 @@
     <string name="graph_predict">Graph Showing Predictions of Current Stock or Crypto</string>
 
 
-
     <string-array name="stocks">
         <item>Amazon</item>
         <item>Apple</item>
