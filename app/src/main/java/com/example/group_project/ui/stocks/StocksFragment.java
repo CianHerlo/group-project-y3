@@ -74,12 +74,8 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
         String text = parent.getItemAtPosition(position).toString();
 
         Snackbar snackBar = Snackbar.make(view.getContext(), view, text, Snackbar.LENGTH_LONG);
-        snackBar.setAction("Close", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Call your action method here
-                snackBar.dismiss();
-            }
+        snackBar.setAction("Close", v -> {
+            snackBar.dismiss();
         });
         snackBar.show();
     }

@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.group_project.R;
 import com.example.group_project.databinding.FragmentCryptoBinding;
 import com.example.group_project.ui.buy.Buy;
+import com.example.group_project.ui.sell.Sell;
 import com.google.android.material.snackbar.Snackbar;
 
 public class CryptoFragment extends Fragment implements AdapterView.OnItemSelectedListener {
@@ -42,8 +43,18 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
         Button buyBtn = view.findViewById(R.id.buyBtnCrypto);
         buyBtn.setOnClickListener(view1 -> {
             Intent intent = new Intent(view1.getContext(), Buy.class);
-               intent.putExtra("Trade_Name", spinner.getSelectedItem().toString());
-               intent.putExtra("Trade_Price", "1234.56");
+            intent.putExtra("Trade_Name", spinner.getSelectedItem().toString());
+            intent.putExtra("Trade_Price", "1234.56");
+            intent.putExtra("Owned", "1234.56");
+            view1.getContext().startActivity(intent);
+        });
+
+        Button sellBtn = view.findViewById(R.id.sellBtnCrypto);
+        sellBtn.setOnClickListener(view1 -> {
+            Intent intent = new Intent(view1.getContext(), Sell.class);
+            intent.putExtra("Trade_Name", spinner.getSelectedItem().toString());
+            intent.putExtra("Trade_Price", "1234.56");
+            intent.putExtra("Owned", "1234.56");
             view1.getContext().startActivity(intent);
         });
 
