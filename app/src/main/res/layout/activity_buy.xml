@@ -120,7 +120,7 @@
                 android:layout_height="48dp"
                 android:layout_marginEnd="32dp"
                 android:ems="10"
-                android:hint="€000000.00"
+                android:hint="$000000.00"
                 android:inputType="numberDecimal"
                 app:layout_constraintBaseline_toBaselineOf="@+id/saleAmountLabel"
                 app:layout_constraintEnd_toEndOf="parent" />
