@@ -17,6 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,10 +59,12 @@ public class Payment extends AppCompatActivity {
                             String wallet_old = (String) documentSnapshot.getString("Wallet");
                             Map<String, Object> updates = new HashMap<>();
 
-                            float num1 = Float.parseFloat(wallet_old);
-                            float num2 = Float.parseFloat(money);
-                            float sum = num1 + num2;
-                            String wallet = String.valueOf(sum);
+                            assert wallet_old != null;
+                            double num1 = Double.parseDouble(wallet_old);
+                            double num2 = Double.parseDouble(money);
+                            double sum = num1 + num2;
+                            DecimalFormat df = new DecimalFormat("#");
+                            String wallet = df.format(sum);
 
                             updates.put("Wallet", wallet);
                             docRef.update(updates);

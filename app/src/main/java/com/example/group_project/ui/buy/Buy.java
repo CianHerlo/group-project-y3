@@ -29,7 +29,7 @@ public class Buy extends AppCompatActivity {
     FirebaseFirestore firestore;
     Map<String, Object> userInfo;
     EditText sellAmountInputQty;
-    TextView balanceAmountText, buyTitle, currentPrice;
+    TextView balanceAmountText, buyTitle, currentPrice, walletFundsTV;
     Button buyBTN;
 
     @SuppressLint("SetTextI18n")
@@ -40,6 +40,7 @@ public class Buy extends AppCompatActivity {
 
         sellAmountInputQty = findViewById(R.id.sellAmountInputQty);
         balanceAmountText = findViewById(R.id.balanceAmountText);
+        walletFundsTV = findViewById(R.id.walletFundsTV);
         currentPrice = findViewById(R.id.price);
         buyTitle = findViewById(R.id.buyTitle);
         buyBTN = findViewById(R.id.confirmPurchaseBtn);
@@ -63,6 +64,7 @@ public class Buy extends AppCompatActivity {
                         userInfo = doc.getData();
                         assert userInfo != null;
                         balanceAmountText.setText("$"+(String) userInfo.get(trade_name));
+                        walletFundsTV.setText("$"+userInfo.get("Wallet").toString());
                     }
                 }
             } else {
