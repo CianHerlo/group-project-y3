@@ -63,15 +63,15 @@ public class PortfolioFragment extends Fragment {
                         // found the matching document
                         userInfo = doc.getData();
                         assert userInfo != null;
-                        adobeOwned.setText("$"+ Objects.requireNonNull(userInfo.get("Adobe")).toString());
-                        amazonOwned.setText("$"+ Objects.requireNonNull(userInfo.get("Amazon")).toString());
-                        appleOwned.setText("$"+ Objects.requireNonNull(userInfo.get("Apple")).toString());
-                        googleOwned.setText("$"+ Objects.requireNonNull(userInfo.get("Google")).toString());
-                        microsoftOwned.setText("$"+ Objects.requireNonNull(userInfo.get("Microsoft")).toString());
-                        bitcoinOwned.setText("$"+ Objects.requireNonNull(userInfo.get("Bitcoin")).toString());
-                        ethereumOwned.setText("$"+ Objects.requireNonNull(userInfo.get("Ethereum")).toString());
-                        totalValuePortfolio.setText("$"+ Objects.requireNonNull(userInfo.get("Total")).toString());
-                        walletTV.setText("$"+ Objects.requireNonNull(userInfo.get("Wallet")).toString());
+                        adobeOwned.setText("$"+ Objects.requireNonNull(userInfo.get("Adobe")));
+                        amazonOwned.setText("$"+ Objects.requireNonNull(userInfo.get("Amazon")));
+                        appleOwned.setText("$"+ Objects.requireNonNull(userInfo.get("Apple")));
+                        googleOwned.setText("$"+ Objects.requireNonNull(userInfo.get("Google")));
+                        microsoftOwned.setText("$"+ Objects.requireNonNull(userInfo.get("Microsoft")));
+                        bitcoinOwned.setText("$"+ Objects.requireNonNull(userInfo.get("Bitcoin")));
+                        ethereumOwned.setText("$"+ Objects.requireNonNull(userInfo.get("Ethereum")));
+                        totalValuePortfolio.setText("$"+ Objects.requireNonNull(userInfo.get("Total")));
+                        walletTV.setText("$"+ Objects.requireNonNull(userInfo.get("Wallet")));
                     }
                 }
             } else {
