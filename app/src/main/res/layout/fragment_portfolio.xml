@@ -28,6 +28,17 @@
         app:layout_constraintTop_toBottomOf="@+id/portfolio_title_total" />
 
     <TextView
+        android:id="@+id/walletTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="15dp"
+        android:text="Wallet"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/portfolioValueTitle" />
+
+    <TextView
         android:id="@+id/ethereumTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -125,6 +136,17 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/portfolio_title_total" />
+
+    <TextView
+        android:id="@+id/walletTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="70dp"
+        android:text="$0.00"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalValuePortfolio" />
 
     <TextView
         android:id="@+id/amazonOwned"
