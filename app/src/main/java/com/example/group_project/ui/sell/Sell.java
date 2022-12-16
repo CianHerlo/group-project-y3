@@ -2,6 +2,7 @@ package com.example.group_project.ui.sell;
 
 import static android.content.ContentValues.TAG;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +32,7 @@ public class Sell extends AppCompatActivity {
     TextView balanceAmountText, sellTitle, currentPrice, walletFundsSell;
     Button sellBTN;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,8 +62,8 @@ public class Sell extends AppCompatActivity {
                         // found the matching document
                         userInfo = doc.getData();
                         assert userInfo != null;
-                        balanceAmountText.setText("$"+(String) userInfo.get(trade_name));
-                        walletFundsSell.setText("$"+userInfo.get("Wallet").toString());
+                        balanceAmountText.setText("$"+ userInfo.get(trade_name));
+                        walletFundsSell.setText("$"+ Objects.requireNonNull(userInfo.get("Wallet")));
                     }
                 }
             } else {
