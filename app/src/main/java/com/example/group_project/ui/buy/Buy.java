@@ -47,7 +47,6 @@ public class Buy extends AppCompatActivity {
 
         Intent intent = getIntent();
         String trade_name = intent.getStringExtra("Trade_Name");
-        String owned = intent.getStringExtra("Owned");
 
         firestore = FirebaseFirestore.getInstance();
         FirebaseUser logged_user = FirebaseAuth.getInstance().getCurrentUser();
