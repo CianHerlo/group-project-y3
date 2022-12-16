@@ -55,7 +55,7 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
         Button buyBtn = view.findViewById(R.id.buyBtnCrypto);
         buyBtn.setOnClickListener(view1 -> {
             Intent intent = new Intent(view1.getContext(), Buy.class);
-            intent.putExtra("Trade_Name", crypto_name);
+            intent.putExtra("Trade_Name", spinner.getSelectedItem().toString());
             view1.getContext().startActivity(intent);
         });
 

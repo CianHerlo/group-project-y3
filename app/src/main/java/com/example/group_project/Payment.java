@@ -56,7 +56,7 @@ public class Payment extends AppCompatActivity {
                             DocumentSnapshot documentSnapshot = querySnapshot.getDocuments().get(0);
                             DocumentReference docRef = documentSnapshot.getReference();
 
-                            String wallet_old = (String) documentSnapshot.getString("Wallet");
+                            String wallet_old = documentSnapshot.getString("Wallet");
                             Map<String, Object> updates = new HashMap<>();
 
                             assert wallet_old != null;

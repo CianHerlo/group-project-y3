@@ -17,10 +17,13 @@ import com.example.group_project.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
+import java.text.DecimalFormat;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -31,6 +34,7 @@ public class Buy extends AppCompatActivity {
     EditText sellAmountInputQty;
     TextView balanceAmountText, buyTitle, currentPrice, walletFundsTV;
     Button buyBTN;
+    private String docID;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -62,8 +66,9 @@ public class Buy extends AppCompatActivity {
                         // found the matching document
                         userInfo = doc.getData();
                         assert userInfo != null;
-                        balanceAmountText.setText("$"+(String) userInfo.get(trade_name));
-                        walletFundsTV.setText("$"+userInfo.get("Wallet").toString());
+                        balanceAmountText.setText("$"+ userInfo.get(trade_name));
+                        walletFundsTV.setText("$"+ Objects.requireNonNull(userInfo.get("Wallet")));
+                        docID = doc.getId();
                     }
                 }
             } else {
@@ -101,6 +106,33 @@ public class Buy extends AppCompatActivity {
                 currentPrice.setText("Price Error!");
                 break;
         }
+
+
+        buyBTN.setOnClickListener(view -> {
+            DecimalFormat df = new DecimalFormat("#");
+            double buyAmount = Double.parseDouble(sellAmountInputQty.getText().toString());
+            double funds = Double.parseDouble(Objects.requireNonNull(userInfo.get("Wallet")).toString());
+            double total_old = Double.parseDouble(Objects.requireNonNull(userInfo.get("Total")).toString());
+            String priceTxt = currentPrice.getText().toString();
+            String price_fix = priceTxt.substring(1).replace(",", "");
+            double price = Double.parseDouble(price_fix);
+            if (buyAmount > 0 && buyAmount < funds) {
+                double shares = buyAmount / price;
+                double wallet_new = funds - buyAmount;
+                double total_new = total_old + buyAmount;
+
+                DocumentReference docRef = firestore.collection("customer_wallets").document(docID);
+//                DocumentSnapshot snapshot = docRef.get().getResult();
+                Map<String, Object> updates = new HashMap<>();
+                updates.put(trade_name, shares);
+                updates.put("Wallet", wallet_new);
+                updates.put("Total", total_new);
+                docRef.update(updates);
+
+                Intent intent2 = new Intent(this, MainActivity.class);
+                startActivity(intent2);
+            }
+        });
     }
 
     @Override
