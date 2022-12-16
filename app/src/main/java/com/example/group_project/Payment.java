@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class Payment extends AppCompatActivity {
 
-    private EditText fundsAddedInput; // cardNumInput, cardDateInput, cardCVC
+    private EditText fundsAddedInput, cardNumInput, cardDateInput, cardCVC;
     private Button paymentBTN;
     FirebaseFirestore firestore;
     Map<String, Object> userInfo;
@@ -32,47 +32,49 @@ public class Payment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
-//        cardNumInput = findViewById(R.id.cardNumInput);
-//        cardDateInput = findViewById(R.id.cardDateInput);
-//        cardCVC = findViewById(R.id.cardCVC);
+        cardNumInput = findViewById(R.id.cardNumInput);
+        cardDateInput = findViewById(R.id.cardDateInput);
+        cardCVC = findViewById(R.id.cardCVC);
         fundsAddedInput = findViewById(R.id.fundsAddedInput);
         paymentBTN = findViewById(R.id.paymentBTN);
 
         paymentBTN.setOnClickListener(v -> {
             if (fundsAddedInput.getText().toString().length() > 0) {
-                String money = fundsAddedInput.getText().toString();
+                if (cardNumInput.getText().length() == 16 && cardDateInput.getText().length() == 5 && cardCVC.getText().length() == 3) {
 
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
-                FirebaseAuth auth = FirebaseAuth.getInstance();
-                String email = auth.getCurrentUser().getEmail();
-                Query query = db.collection("customer_wallets").whereEqualTo("Email", email);
+                    String money = fundsAddedInput.getText().toString();
 
-                query.get().addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        QuerySnapshot querySnapshot = task.getResult();
-                        DocumentSnapshot documentSnapshot = querySnapshot.getDocuments().get(0);
-                        DocumentReference docRef = documentSnapshot.getReference();
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    FirebaseAuth auth = FirebaseAuth.getInstance();
+                    String email = auth.getCurrentUser().getEmail();
+                    Query query = db.collection("customer_wallets").whereEqualTo("Email", email);
 
-                        String wallet_old = (String) documentSnapshot.getString("Wallet");
-                        Map<String, Object> updates = new HashMap<>();
+                    query.get().addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            QuerySnapshot querySnapshot = task.getResult();
+                            DocumentSnapshot documentSnapshot = querySnapshot.getDocuments().get(0);
+                            DocumentReference docRef = documentSnapshot.getReference();
 
-                        float num1 = Float.parseFloat(wallet_old);
-                        float num2 = Float.parseFloat(money);
-                        float sum = num1+num2;
-                        String wallet = String.valueOf(sum);
+                            String wallet_old = (String) documentSnapshot.getString("Wallet");
+                            Map<String, Object> updates = new HashMap<>();
 
-                        updates.put("Wallet", wallet);
-                        docRef.update(updates);
+                            float num1 = Float.parseFloat(wallet_old);
+                            float num2 = Float.parseFloat(money);
+                            float sum = num1 + num2;
+                            String wallet = String.valueOf(sum);
 
-                    } else {
-                        // Handle error
-                        Log.w(TAG, "Error with update");
-                    }
-                });
+                            updates.put("Wallet", wallet);
+                            docRef.update(updates);
 
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
+                        } else {
+                            // Handle error
+                            Log.w(TAG, "Error with update");
+                        }
+                    });
 
+                    Intent intent = new Intent(this, MainActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
