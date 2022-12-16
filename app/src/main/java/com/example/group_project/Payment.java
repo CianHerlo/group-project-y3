@@ -2,6 +2,7 @@ package com.example.group_project;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -69,9 +70,16 @@ public class Payment extends AppCompatActivity {
                     }
                 });
 
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
 
             }
         });
+    }
 
+    @Override
+    public void onBackPressed() {   // Sends user Back to Home (Main Activity)
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
