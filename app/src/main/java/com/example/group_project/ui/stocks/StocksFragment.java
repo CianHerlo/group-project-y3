@@ -66,8 +66,6 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
         buyBtn.setOnClickListener(view1 -> {
             Intent intent = new Intent(view1.getContext(), Buy.class);
             intent.putExtra("Trade_Name", spinner.getSelectedItem().toString());
-//            intent.putExtra("Trade_Price", "1234.56");
-            intent.putExtra("Owned", "1234.56");
              view1.getContext().startActivity(intent);
         });
 
@@ -75,8 +73,6 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
         sellBtn.setOnClickListener(view1 -> {
             Intent intent = new Intent(view1.getContext(), Sell.class);
             intent.putExtra("Trade_Name", spinner.getSelectedItem().toString());
-//            intent.putExtra("Trade_Price", "1234.56");
-            intent.putExtra("Owned", "1234.56");
             view1.getContext().startActivity(intent);
         });
 

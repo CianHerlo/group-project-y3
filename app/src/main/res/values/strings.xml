@@ -34,6 +34,7 @@
     <string name="buy_button_label">Buy</string>
     <string name="sell_button_label">Sell</string>
     <string name="graph_predict">Graph Showing Predictions of Current Stock or Crypto</string>
+    <string name="payment_title">Add Funds</string>
 
     <!-- Stock/Crypto Prices for 1 Share -->
     <string name="adobe_name">Adobe</string>

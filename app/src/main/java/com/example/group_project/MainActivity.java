@@ -109,6 +109,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+//        addFundsBTN.setOnClickListener(view1 -> {
+//            Intent intent = new Intent(view1.getContext(), Payment.class);
+//            view1.getContext().startActivity(intent);
+//        });
+
         // Logout in Navigation Menu
         navigationView.getMenu().findItem(R.id.nav_logout).setOnMenuItemClickListener(menuItem -> {
            logout();

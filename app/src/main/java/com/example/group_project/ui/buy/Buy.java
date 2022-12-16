@@ -2,6 +2,7 @@ package com.example.group_project.ui.buy;
 
 import static android.content.ContentValues.TAG;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +32,7 @@ public class Buy extends AppCompatActivity {
     TextView balanceAmountText, buyTitle, currentPrice;
     Button buyBTN;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +61,7 @@ public class Buy extends AppCompatActivity {
                     if (Objects.equals(doc.get("Email"), logged_user.getEmail())) {
                         // found the matching document
                         userInfo = doc.getData();
+                        assert userInfo != null;
                         balanceAmountText.setText("$"+(String) userInfo.get(trade_name));
                     }
                 }
