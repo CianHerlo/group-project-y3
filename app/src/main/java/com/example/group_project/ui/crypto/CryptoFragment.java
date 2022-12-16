@@ -30,7 +30,6 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentCryptoBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
         View view = inflater.inflate(R.layout.fragment_crypto, container, false);
 
         Spinner spinner = view.findViewById(R.id.spinner_crypto);
@@ -51,12 +50,12 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
         predictionText = view.findViewById(R.id.predictionText);
         predictionText2 = view.findViewById(R.id.predictionText2);
 
+
+        String crypto_name = spinner.getSelectedItem().toString();
         Button buyBtn = view.findViewById(R.id.buyBtnCrypto);
         buyBtn.setOnClickListener(view1 -> {
             Intent intent = new Intent(view1.getContext(), Buy.class);
-            intent.putExtra("Trade_Name", spinner.getSelectedItem().toString());
-//            intent.putExtra("Trade_Price", "1234.56");
-            intent.putExtra("Owned", "1234.56");
+            intent.putExtra("Trade_Name", crypto_name);
             view1.getContext().startActivity(intent);
         });
 
@@ -64,8 +63,6 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
         sellBtn.setOnClickListener(view1 -> {
             Intent intent = new Intent(view1.getContext(), Sell.class);
             intent.putExtra("Trade_Name", spinner.getSelectedItem().toString());
-//            intent.putExtra("Trade_Price", "1234.56");
-            intent.putExtra("Owned", "1234.56");
             view1.getContext().startActivity(intent);
         });
 
