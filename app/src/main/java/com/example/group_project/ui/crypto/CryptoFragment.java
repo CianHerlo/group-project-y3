@@ -25,7 +25,7 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
 
     private FragmentCryptoBinding binding;
     private ImageView img, img2;
-    private TextView predictionText, predictionText2;
+    private TextView predictionText, predictionText2, cryptoInfoText, cryptoInfoText2;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -49,6 +49,9 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
 
         predictionText = view.findViewById(R.id.predictionText);
         predictionText2 = view.findViewById(R.id.predictionText2);
+
+        cryptoInfoText = view.findViewById(R.id.cryptoInfoText);
+        cryptoInfoText2 = view.findViewById(R.id.cryptoInfoText2);
 
 
         String crypto_name = spinner.getSelectedItem().toString();
@@ -87,12 +90,18 @@ public class CryptoFragment extends Fragment implements AdapterView.OnItemSelect
 
             predictionText.setVisibility(View.VISIBLE);
             predictionText2.setVisibility(View.INVISIBLE);
+
+            cryptoInfoText.setVisibility(View.VISIBLE);
+            cryptoInfoText2.setVisibility(View.INVISIBLE);
         } else {
             img.setVisibility(View.INVISIBLE);
             img2.setVisibility(View.VISIBLE);
 
             predictionText.setVisibility(View.INVISIBLE);
             predictionText2.setVisibility(View.VISIBLE);
+
+            cryptoInfoText.setVisibility(View.INVISIBLE);
+            cryptoInfoText2.setVisibility(View.VISIBLE);
         }
 
 
