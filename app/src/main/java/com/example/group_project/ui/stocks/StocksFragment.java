@@ -25,7 +25,7 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
 
     private FragmentStocksBinding binding;
     private ImageView img, img2, img3, img4, img5;
-    private TextView predictionText, predictionText2, predictionText3, predictionText4, predictionText5;
+    private TextView predictionText, predictionText2, predictionText3, predictionText4, predictionText5, stockInfoText, stockInfoText2, stockInfoText3, stockInfoText4, stockInfoText5;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -59,6 +59,12 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
         predictionText3 = view.findViewById(R.id.predictionText3);
         predictionText4 = view.findViewById(R.id.predictionText4);
         predictionText5 = view.findViewById(R.id.predictionText5);
+
+        stockInfoText = view.findViewById(R.id.stockInfoText);
+        stockInfoText2 = view.findViewById(R.id.stockInfoText2);
+        stockInfoText3 = view.findViewById(R.id.stockInfoText3);
+        stockInfoText4 = view.findViewById(R.id.stockInfoText4);
+        stockInfoText5 = view.findViewById(R.id.stockInfoText5);
 
         Button buyBtn = view.findViewById(R.id.buyBtn);
         buyBtn.setOnClickListener(view1 -> {
@@ -99,6 +105,12 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
             predictionText3.setVisibility(View.INVISIBLE);
             predictionText4.setVisibility(View.INVISIBLE);
             predictionText5.setVisibility(View.INVISIBLE);
+
+            stockInfoText.setVisibility(View.VISIBLE);
+            stockInfoText2.setVisibility(View.INVISIBLE);
+            stockInfoText3.setVisibility(View.INVISIBLE);
+            stockInfoText4.setVisibility(View.INVISIBLE);
+            stockInfoText5.setVisibility(View.INVISIBLE);
         } else if (spinner_item.equals("Amazon")) {
             img.setVisibility(View.INVISIBLE);
             img2.setVisibility(View.VISIBLE);
@@ -111,6 +123,12 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
             predictionText3.setVisibility(View.INVISIBLE);
             predictionText4.setVisibility(View.INVISIBLE);
             predictionText5.setVisibility(View.INVISIBLE);
+
+            stockInfoText.setVisibility(View.INVISIBLE);
+            stockInfoText2.setVisibility(View.VISIBLE);
+            stockInfoText3.setVisibility(View.INVISIBLE);
+            stockInfoText4.setVisibility(View.INVISIBLE);
+            stockInfoText5.setVisibility(View.INVISIBLE);
         } else if (spinner_item.equals("Apple")) {
             img.setVisibility(View.INVISIBLE);
             img2.setVisibility(View.INVISIBLE);
@@ -123,6 +141,12 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
             predictionText3.setVisibility(View.VISIBLE);
             predictionText4.setVisibility(View.INVISIBLE);
             predictionText5.setVisibility(View.INVISIBLE);
+
+            stockInfoText.setVisibility(View.INVISIBLE);
+            stockInfoText2.setVisibility(View.INVISIBLE);
+            stockInfoText3.setVisibility(View.VISIBLE);
+            stockInfoText4.setVisibility(View.INVISIBLE);
+            stockInfoText5.setVisibility(View.INVISIBLE);
         } else if (spinner_item.equals("Google")) {
             img.setVisibility(View.INVISIBLE);
             img2.setVisibility(View.INVISIBLE);
@@ -135,6 +159,12 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
             predictionText3.setVisibility(View.INVISIBLE);
             predictionText4.setVisibility(View.VISIBLE);
             predictionText5.setVisibility(View.INVISIBLE);
+
+            stockInfoText.setVisibility(View.INVISIBLE);
+            stockInfoText2.setVisibility(View.INVISIBLE);
+            stockInfoText3.setVisibility(View.INVISIBLE);
+            stockInfoText4.setVisibility(View.VISIBLE);
+            stockInfoText5.setVisibility(View.INVISIBLE);
         } else {
             img.setVisibility(View.INVISIBLE);
             img2.setVisibility(View.INVISIBLE);
@@ -147,6 +177,12 @@ public class StocksFragment extends Fragment implements AdapterView.OnItemSelect
             predictionText3.setVisibility(View.INVISIBLE);
             predictionText4.setVisibility(View.INVISIBLE);
             predictionText5.setVisibility(View.VISIBLE);
+
+            stockInfoText.setVisibility(View.INVISIBLE);
+            stockInfoText2.setVisibility(View.INVISIBLE);
+            stockInfoText3.setVisibility(View.INVISIBLE);
+            stockInfoText4.setVisibility(View.INVISIBLE);
+            stockInfoText5.setVisibility(View.VISIBLE);
         }
 
 
