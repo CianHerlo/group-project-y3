@@ -110,7 +110,7 @@ public class Buy extends AppCompatActivity {
 
 
         buyBTN.setOnClickListener(view -> {
-            DecimalFormat df = new DecimalFormat("#");
+            DecimalFormat df = new DecimalFormat("#.00");
             double buyAmount = Double.parseDouble(sellAmountInputQty.getText().toString());
             double funds = Double.parseDouble(Objects.requireNonNull(userInfo.get("Wallet")).toString());
             double total_old = Double.parseDouble(Objects.requireNonNull(userInfo.get("Total")).toString());
@@ -128,8 +128,8 @@ public class Buy extends AppCompatActivity {
 //                DocumentSnapshot snapshot = docRef.get().getResult();
                 Map<String, Object> updates = new HashMap<>();
                 updates.put(trade_name, share_new);
-                updates.put("Wallet", wallet_new);
-                updates.put("Total", total_new);
+                updates.put("Wallet", df.format(wallet_new));
+                updates.put("Total", df.format(total_new));
                 docRef.update(updates);
 
                 Intent intent2 = new Intent(this, MainActivity.class);
