@@ -90,15 +90,15 @@ public class MainActivity extends AppCompatActivity {
                     // Create a new user
                     Map<String, Object> user = new HashMap<>();
                     user.put("Email", logged_email);
-                    user.put("Wallet", "0");
-                    user.put("Total", "0");
-                    user.put("Adobe", "0");
-                    user.put("Amazon", "0");
-                    user.put("Apple", "0");
-                    user.put("Google", "0");
-                    user.put("Microsoft", "0");
-                    user.put("Bitcoin", "0");
-                    user.put("Ethereum", "0");
+                    user.put("Wallet", 0);
+                    user.put("Total", 0);
+                    user.put("Adobe", 0);
+                    user.put("Amazon", 0);
+                    user.put("Apple", 0);
+                    user.put("Google", 0);
+                    user.put("Microsoft", 0);
+                    user.put("Bitcoin", 0);
+                    user.put("Ethereum", 0);
 
                     // Add a new document with a generated ID
                     db.collection("customer_wallets")

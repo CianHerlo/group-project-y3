@@ -18,8 +18,11 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 public class Payment extends AppCompatActivity {
 
@@ -56,7 +59,7 @@ public class Payment extends AppCompatActivity {
                             DocumentSnapshot documentSnapshot = querySnapshot.getDocuments().get(0);
                             DocumentReference docRef = documentSnapshot.getReference();
 
-                            String wallet_old = documentSnapshot.getString("Wallet");
+                            String wallet_old = (String) Objects.requireNonNull(documentSnapshot.get("Wallet")).toString();
                             Map<String, Object> updates = new HashMap<>();
 
                             assert wallet_old != null;

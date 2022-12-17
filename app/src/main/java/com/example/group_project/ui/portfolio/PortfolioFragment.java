@@ -22,6 +22,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -53,6 +56,7 @@ public class PortfolioFragment extends Fragment {
         walletTV = view.findViewById(R.id.walletTV);
 
 
+        DecimalFormat df = new DecimalFormat("#.00");
         CollectionReference customerWalletsRef = firestore.collection("customer_wallets");
         Query query = customerWalletsRef.whereEqualTo("Email", logged_email);
         query.get().addOnCompleteListener(task -> {
@@ -63,15 +67,31 @@ public class PortfolioFragment extends Fragment {
                         // found the matching document
                         userInfo = doc.getData();
                         assert userInfo != null;
-                        adobeOwned.setText(""+ Objects.requireNonNull(userInfo.get("Adobe")));
-                        amazonOwned.setText(""+ Objects.requireNonNull(userInfo.get("Amazon")));
-                        appleOwned.setText(""+ Objects.requireNonNull(userInfo.get("Apple")));
-                        googleOwned.setText(""+ Objects.requireNonNull(userInfo.get("Google")));
-                        microsoftOwned.setText(""+ Objects.requireNonNull(userInfo.get("Microsoft")));
-                        bitcoinOwned.setText(""+ Objects.requireNonNull(userInfo.get("Bitcoin")));
-                        ethereumOwned.setText(""+ Objects.requireNonNull(userInfo.get("Ethereum")));
-                        totalValuePortfolio.setText(""+ Objects.requireNonNull(userInfo.get("Total")));
-                        walletTV.setText(""+ Objects.requireNonNull(userInfo.get("Wallet")));
+                        String adobe = df.format(userInfo.get("Adobe"));
+                        String amazon = df.format(userInfo.get("Amazon"));
+                        String apple = df.format(userInfo.get("Apple"));
+                        String google = df.format(userInfo.get("Google"));
+                        String microsoft = df.format(userInfo.get("Microsoft"));
+                        String bitcoin = df.format(userInfo.get("Bitcoin"));
+                        String ethereum = df.format(userInfo.get("Ethereum"));
+
+                        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
+                        String wallet_string = (String) Objects.requireNonNull(userInfo.get("Wallet")).toString();
+                        String total_string = Objects.requireNonNull(userInfo.get("Total")).toString();
+                        double wallet_double = Double.parseDouble(wallet_string);
+                        double total_double = Double.parseDouble(total_string);
+                        String wallet_formatted = currencyFormat.format(wallet_double);
+                        String total_formatted = currencyFormat.format(total_double);
+
+                        adobeOwned.setText(""+ adobe);
+                        amazonOwned.setText(""+ amazon);
+                        appleOwned.setText(""+ apple);
+                        googleOwned.setText(""+ google);
+                        microsoftOwned.setText(""+ microsoft);
+                        bitcoinOwned.setText(""+ bitcoin);
+                        ethereumOwned.setText(""+ ethereum);
+                        totalValuePortfolio.setText(""+ total_formatted);
+                        walletTV.setText(""+ wallet_formatted);
                     }
                 }
             } else {
