@@ -119,15 +119,15 @@ public class Sell extends AppCompatActivity {
             double price = Double.parseDouble(price_fix);
             double owned = shares_old * price;
             if (sellAmount > 0 && sellAmount < owned) {
-                double remaining_value = owned - sellAmount;
-                double shares = remaining_value / price;
+                double sold_shares = sellAmount / price;
                 double wallet_new = funds + sellAmount;
                 double total_new = total_old - sellAmount;
+                double shares_new = shares_old - sold_shares;
 
                 DocumentReference docRef = firestore.collection("customer_wallets").document(docID);
 //                DocumentSnapshot snapshot = docRef.get().getResult();
                 Map<String, Object> updates = new HashMap<>();
-                updates.put(trade_name, shares);
+                updates.put(trade_name, shares_new);
                 updates.put("Wallet", wallet_new);
                 updates.put("Total", total_new);
                 docRef.update(updates);
