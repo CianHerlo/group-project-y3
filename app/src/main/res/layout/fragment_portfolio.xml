@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="@string/google"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -24,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="@string/microsoft"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -37,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="@string/bitcoin"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -50,6 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="@string/ethereum"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -64,6 +68,7 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="30dp"
         android:text="@string/bitcoin_name"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/portfolio_title_crypto" />
@@ -75,6 +80,7 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="30dp"
         android:text="Portfolio value"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/portfolio_title_total" />
@@ -86,6 +92,7 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="15dp"
         android:text="Wallet"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/portfolioValueTitle" />
@@ -99,7 +106,8 @@
         android:text="@string/ethereum_name"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bitcoinTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/bitcoinTitle"
+        android:textColor="?android:attr/colorForeground" />
 
     <TextView
         android:id="@+id/microsoftOwned"
@@ -107,6 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="70dp"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/googleOwned" />
@@ -118,6 +127,7 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="15dp"
         android:text="@string/apple_name"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amazonTitle" />
@@ -129,6 +139,7 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="15dp"
         android:text="@string/google_name"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appleTitle" />
@@ -140,6 +151,7 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="15dp"
         android:text="@string/microsoft_name"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/googleTitle" />
@@ -150,6 +162,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="70dp"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/portfolio_title_stock" />
@@ -160,6 +173,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="70dp"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/portfolio_title_crypto" />
@@ -170,6 +184,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="70dp"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bitcoinOwned" />
@@ -181,6 +196,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="70dp"
         android:text="$0.00"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/portfolio_title_total" />
@@ -192,6 +208,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="70dp"
         android:text="$0.00"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/totalValuePortfolio" />
@@ -202,6 +219,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="70dp"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adobeOwned" />
@@ -212,6 +230,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="70dp"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amazonOwned" />
@@ -222,6 +241,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="70dp"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appleOwned" />
@@ -233,6 +253,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/menu_stocks"
         android:textAlignment="center"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -246,6 +267,7 @@
         android:layout_marginTop="40dp"
         android:text="@string/menu_crypto"
         android:textAlignment="center"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -258,6 +280,7 @@
         android:layout_marginTop="40dp"
         android:text="Total"
         android:textAlignment="center"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
@@ -271,6 +294,7 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="30dp"
         android:text="@string/adobe_name"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/portfolio_title_stock" />
@@ -281,6 +305,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="@string/adobe"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -294,6 +319,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="@string/amazon"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -307,6 +333,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="@string/apple"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -321,6 +348,7 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="15dp"
         android:text="@string/amazon_name"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adobeTitle" />
