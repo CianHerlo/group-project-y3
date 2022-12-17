@@ -10,7 +10,6 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.group_project.R;
 import com.example.group_project.databinding.FragmentContactBinding;
@@ -21,9 +20,7 @@ public class ContactFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        ContactViewModel stocksViewModel = new ViewModelProvider(this).get(ContactViewModel.class);
         binding = FragmentContactBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
         View view = inflater.inflate(R.layout.fragment_contact, container, false);
 
         Button callBTN = view.findViewById(R.id.callBTN);
@@ -35,7 +32,7 @@ public class ContactFragment extends Fragment {
 
         Button emailBTN = view.findViewById(R.id.emailBTN);
         emailBTN.setOnClickListener(view1 -> {
-            String emails = "aaron.canty@mycit.ie,alannah.cooney@mycit.ie,cian.herlihy@mycit.ie,roisin.suarez@mycit.ie";
+            String emails = "aaron.canty@mycit.ie,a.cullinane-cooney@mycit.ie,cian.herlihy@mycit.ie,roisin.suarez@mycit.ie";
             String [] emailList = emails.split(",");
             Intent intent = new Intent(Intent.ACTION_SEND_MULTIPLE);
             intent.setType("message/rfc822");

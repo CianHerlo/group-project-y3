@@ -66,7 +66,7 @@ public class Buy extends AppCompatActivity {
                         // found the matching document
                         userInfo = doc.getData();
                         assert userInfo != null;
-                        balanceAmountText.setText("$"+ userInfo.get(trade_name));
+                        balanceAmountText.setText(""+ userInfo.get(trade_name));
                         walletFundsTV.setText("$"+ Objects.requireNonNull(userInfo.get("Wallet")));
                         docID = doc.getId();
                     }
