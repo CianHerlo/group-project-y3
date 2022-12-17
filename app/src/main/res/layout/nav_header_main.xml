@@ -25,5 +25,7 @@
         android:id="@+id/emailNavText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nav_header_subtitle" />
+        android:text="@string/nav_header_subtitle"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
 </LinearLayout>

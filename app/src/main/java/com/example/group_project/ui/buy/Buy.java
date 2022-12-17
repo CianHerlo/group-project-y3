@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -131,6 +132,10 @@ public class Buy extends AppCompatActivity {
 
                 Intent intent2 = new Intent(this, MainActivity.class);
                 startActivity(intent2);
+            } else if (buyAmount < funds) {
+                Toast.makeText(this, "Not enough Funds", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Error! Please check input", Toast.LENGTH_SHORT).show();
             }
         });
     }
