@@ -114,18 +114,20 @@ public class Buy extends AppCompatActivity {
             double buyAmount = Double.parseDouble(sellAmountInputQty.getText().toString());
             double funds = Double.parseDouble(Objects.requireNonNull(userInfo.get("Wallet")).toString());
             double total_old = Double.parseDouble(Objects.requireNonNull(userInfo.get("Total")).toString());
+            double shares_old = Double.parseDouble(Objects.requireNonNull(userInfo.get(trade_name)).toString());
             String priceTxt = currentPrice.getText().toString();
             String price_fix = priceTxt.substring(1).replace(",", "");
             double price = Double.parseDouble(price_fix);
             if (buyAmount > 0 && buyAmount < funds) {
-                double shares = buyAmount / price;
+                double added_shares = buyAmount / price;
                 double wallet_new = funds - buyAmount;
                 double total_new = total_old + buyAmount;
+                double share_new = shares_old + added_shares;
 
                 DocumentReference docRef = firestore.collection("customer_wallets").document(docID);
 //                DocumentSnapshot snapshot = docRef.get().getResult();
                 Map<String, Object> updates = new HashMap<>();
-                updates.put(trade_name, shares);
+                updates.put(trade_name, share_new);
                 updates.put("Wallet", wallet_new);
                 updates.put("Total", total_new);
                 docRef.update(updates);
