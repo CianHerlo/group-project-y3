@@ -118,7 +118,7 @@ public class Sell extends AppCompatActivity {
             String price_fix = priceTxt.substring(1).replace(",", "");
             double price = Double.parseDouble(price_fix);
             double owned = shares_old * price;
-            if (sellAmount > 0 && sellAmount < owned) {
+            if (sellAmount > 0 && sellAmount <= owned) {
                 double sold_shares = sellAmount / price;
                 double wallet_new = funds + sellAmount;
                 double total_new = total_old - sellAmount;

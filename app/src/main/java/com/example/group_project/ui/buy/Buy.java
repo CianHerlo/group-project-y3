@@ -118,7 +118,7 @@ public class Buy extends AppCompatActivity {
             String priceTxt = currentPrice.getText().toString();
             String price_fix = priceTxt.substring(1).replace(",", "");
             double price = Double.parseDouble(price_fix);
-            if (buyAmount > 0 && buyAmount < funds) {
+            if (buyAmount > 0 && buyAmount <= funds) {
                 double added_shares = buyAmount / price;
                 double wallet_new = funds - buyAmount;
                 double total_new = total_old + buyAmount;
